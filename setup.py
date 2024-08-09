@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import re
 import os
+import re
 
 try:
     from setuptools import setup
 except ImportError:
     from ez_setup import use_setuptools
+
     use_setuptools()
     from setuptools import setup
 
@@ -17,6 +18,7 @@ def get_version(package):
     """
     init_py = open(os.path.join(package, "__init__.py")).read()
     return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
+
 
 setup(
     name="drf-haystack",
@@ -33,9 +35,9 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        "Django>=2.2,<4.3",
-        "djangorestframework>=3.7,<3.16",
-        "django-haystack>=2.8,<=3.2.1",
+        "Django>=2.2",
+        "djangorestframework>=3.7",
+        "django-haystack>=2.8",
         "python-dateutil"
     ],
     tests_require=[
